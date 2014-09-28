@@ -1,0 +1,19 @@
+=clickable($hover-color)
+  cursor: pointer
+  &:hover
+    color: $hover-color
+
+#vue-todos
+  .todo
+    padding: 15px
+    .title
+      +clickable(silver)
+
+  .editing
+    color: silver
+    .title
+      display: none
+    .form-control
+      width: 100px
+      display: inline-block
+
