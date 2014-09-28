@@ -1,8 +1,11 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:update, :destroy]
+  before_action :set_todo, only: [:show, :update, :destroy]
 
   def index
-    @todos = Todo.all
+    respond_to do |format|
+      format.html
+      format.json { @todos = Todo.all.order(id: :asc) }
+    end
   end
 
   def show

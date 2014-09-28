@@ -1,21 +1,21 @@
-h1 Listing todos
+.page-header
+  h1 Listing todos
 
-table
-  thead
-    tr
-      th Title
-      th
-      th
-      th
+script#todo-template type='text/x-template'
+  .col-xs-6 v-class='editing: isTitleEditing'
+    label.title v-on='click: editTitle'
+      | {{title}}
+    input.edit.form-control v-model='editingValue' v-on='blur: update, keyup: update | key enter' v-if='isTitleEditing'
+  .col-xs-2
+    span.destroy-todo v-on='click: destroyTodo(this)'
+      = fa_icon "trash-o"
 
-  tbody
-    - @todos.each do |todo|
-      tr
-        td = todo.title
-        td = link_to 'Show', todo
-        td = link_to 'Edit', edit_todo_path(todo)
-        td = link_to 'Destroy', todo, data: {:confirm => 'Are you sure?'}, :method => :delete
+#vue-todos todosUrl=todos_url
+  #new-todo.row
+    .field
+      .col-xs-8
+        input.new-todo-field.form-control autofocus=true autocomplete='off' v-model='newTodo' v-on='keyup: createTodo | key enter'
+      = fa_icon 'pencil'
 
-br
+  .todo.row v-component='todo' v-repeat="todos | orderBy 'id' -1"
 
-= link_to 'New Todo', new_todo_path
