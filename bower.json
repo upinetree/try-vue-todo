@@ -1,0 +1,6 @@
+{
+  "name": "column ajax edit test",
+  "dependencies": {
+    "vue": "latest"
+  }
+}
