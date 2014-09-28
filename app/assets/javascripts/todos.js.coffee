@@ -8,7 +8,7 @@ $ ->
       editingValue: ''
 
     methods:
-      editTodo: ->
+      editTitle: ->
         @isTitleEditing = true
         @editingTarget = 'title'
         @editingValue = @title # フィールドの初期値として現在の値を入れる
