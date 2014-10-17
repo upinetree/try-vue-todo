@@ -2,6 +2,8 @@
 
 Simple todo app using vue.js
 
+![how to work](./how-to-work.gif)
+
 ## Setup
 
 ```
